@@ -1,0 +1,201 @@
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+    overflow-x: hidden; /* to hide the side page that was overflowing */
+}
+body{
+    overflow-x: hidden;
+}
+h1{
+    font-size: 3rem;
+}
+/* 1 rem = 10px */
+.header
+{
+    padding: 0 4.8rem;
+    height: 10rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:  rgb(248, 242, 233);
+
+}
+.navbar-list
+{
+    display: flex; 
+    gap: 4.8rem;
+    list-style: none;
+}
+
+.navbar_link:link,
+.navbar_link:visited {
+     display: flex;
+     text-transform: uppercase;
+     text-decoration: none;
+     font-size: 2rem;
+     font-weight: 500;
+     color: black;
+     transition: all 0.1s;
+}
+
+.navbar_link:hover, 
+.navbar_link:active{
+    color: rgb(130, 230, 244);
+}
+
+/* Image Carousel */
+.carousel{
+    position: relative;
+    width: 100%;
+    max-width: 1500px;
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+.carousel-image{
+    width: 100%;
+    height: auto;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s ease;
+    position: absolute;
+}
+
+.carousel-image.image_active{
+    opacity: 1;
+    position: relative;
+}
+
+
+/* Mobile-section */
+.mobile-nav-btn{
+    display: none;
+    background: transparent;
+    cursor: pointer;
+    z-index: 999;
+    border: 3px solid black;
+    color: black;
+}
+.mobile-nav-icon{
+    width: 4rem;
+    height: 4rem;
+    color: black;
+}
+
+.mobile-nav-icon[name="close-outline"]
+{
+    display: none;
+}
+
+
+/* Responsive navbar */
+/* 980px */
+/* 1em = 16px */
+
+@media(max-width: 62em){
+    .mobile-nav-btn{
+        display: block;
+        z-index: 999;
+        border: 3px solid black;
+        color: black;
+    }
+    
+    .navbar{
+        /* hiding the icons in mobile version */
+        width: 100%;
+        height: 50vh;
+        background-color: rgb(255, 246, 237);
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        /* to get the transition */
+        transform: translateY(0);
+        transition: top;
+       
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        z-index: 100;
+
+    }
+    .carousel{
+        position: relative;
+        z-index: 1;
+    }
+
+    .navbar-list{
+        flex-direction: column;
+        align-items: center;
+   
+    }
+
+    .active .navbar{
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      
+    }
+    
+    .active .mobile-nav-btn .mobile-nav-icon[name="close-outline"]{
+        z-index: 999;
+        display: block;
+    }
+    .active .mobile-nav-btn .mobile-nav-icon[name="menu-outline"]{
+        display: none;
+    }
+
+}
+.sign-in-btn{
+    height: 50px;
+    width: 80px;
+    font-size: 2rem;
+}
+
+.dialog {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.dialog-content {
+    background-color: #feeac7;
+    margin: 20% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #888;
+}
+
+.close-btn:hover {
+    color: #000;
+}
